@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://yg7e83elwxoc"]
+[gd_scene load_steps=10 format=3 uid="uid://yg7e83elwxoc"]
 
 [ext_resource type="Script" uid="uid://bjkq20tw44n8s" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ri4v3e2msd6i" path="res://Characters/Player/Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cvuqswevxcjio" path="res://Characters/Enemies/Fairy/Fairy.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b6g3n5wyjwol0" path="res://Bullets/Patterns/FireStraight.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dbwc06txbnvnt" path="res://Bullets/PelletBullet.tscn" id="5_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(20, 652)
@@ -44,3 +47,9 @@ shape = SubResource("RectangleShape2D_1bvp3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundaryBottom"]
 position = Vector2(175, 650)
 shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Fairy" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(180, 129)
+
+[node name="FireStraight" parent="Fairy" instance=ExtResource("4_lquwl")]
+bullet_type = ExtResource("5_7mycd")
