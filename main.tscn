@@ -1,10 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://yg7e83elwxoc"]
+[gd_scene load_steps=7 format=3 uid="uid://yg7e83elwxoc"]
 
 [ext_resource type="Script" uid="uid://bjkq20tw44n8s" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ri4v3e2msd6i" path="res://Characters/Player/Player.tscn" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(20, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(378, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(20, 673)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(390, 20)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(180, 560)
+
+[node name="PlayerBoundaryLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundaryLeft"]
+position = Vector2(-10, 319)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="PlayerBoundaryTop" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundaryTop"]
+position = Vector2(179, -10)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="PlayerBoundaryRight" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundaryRight"]
+position = Vector2(370, 316.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="PlayerBoundaryBottom" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundaryBottom"]
+position = Vector2(175, 650)
+shape = SubResource("RectangleShape2D_lquwl")
