@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvuqswevxcjio"]
+
+[ext_resource type="Texture2D" uid="uid://cbvwmgnxp2iu8" path="res://Characters/Enemies/Fairy/_art/fairies1.png" id="1_546qf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7hxb"]
+
+[node name="Fairy" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_546qf")
+hframes = 12
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u7hxb")
