@@ -1,10 +1,110 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvuqswevxcjio"]
+[gd_scene load_steps=10 format=3 uid="uid://cvuqswevxcjio"]
 
 [ext_resource type="Texture2D" uid="uid://cbvwmgnxp2iu8" path="res://Characters/Enemies/Fairy/_art/fairies1.png" id="1_546qf"]
+[ext_resource type="Script" uid="uid://b4ff2xtvehhcr" path="res://Characters/Enemies/Fairy/fairy.gd" id="1_u7hxb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7hxb"]
 
+[sub_resource type="Animation" id="Animation_546qf"]
+resource_name = "blueStandard"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_u7hxb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i5rd0"]
+resource_name = "redStandard"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_oled2"]
+resource_name = "greenStandard"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_5u50o"]
+resource_name = "yellowStandard"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5rd0"]
+_data = {
+&"RESET": SubResource("Animation_u7hxb"),
+&"blueStandard": SubResource("Animation_546qf"),
+&"greenStandard": SubResource("Animation_oled2"),
+&"redStandard": SubResource("Animation_i5rd0"),
+&"yellowStandard": SubResource("Animation_5u50o")
+}
+
 [node name="Fairy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_u7hxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_546qf")
@@ -13,3 +113,9 @@ vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u7hxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i5rd0")
+}
+autoplay = "blueStandard"
