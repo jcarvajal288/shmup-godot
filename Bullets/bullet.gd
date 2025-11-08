@@ -8,11 +8,6 @@ var speed = 0
 var direction = Vector2.UP
 
 
-func init_velocity(dir: Vector2, spd: int) -> void:
-	direction = dir
-	speed = spd
-
-
 func build(color: Global.BulletColor, pos: Vector2, dir: Vector2, spd: int) -> void:
 	bullet_color = color
 	global_position = pos
@@ -29,6 +24,10 @@ func _ready() -> void:
 	set_collision_layer_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_mask_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_layer_value(Global.CollisionLayer.BULLET, true)
+	$Sprite2D.region_rect = Rect2(
+		Vector2(bullet_size * bullet_color, $Sprite2D.region_rect.position.y),
+		Vector2(bullet_size, bullet_size)
+	)
 	velocity = direction * speed
 
 
