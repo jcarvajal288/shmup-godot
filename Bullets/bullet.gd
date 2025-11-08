@@ -8,6 +8,19 @@ var speed = 0
 var direction = Vector2.UP
 
 
+func init_velocity(dir: Vector2, spd: int) -> void:
+	direction = dir
+	speed = spd
+
+
+func build(color: Global.BulletColor, pos: Vector2, dir: Vector2, spd: int) -> void:
+	bullet_color = color
+	global_position = pos
+	direction = dir
+	speed = spd
+
+
+
 func _ready() -> void:
 	set_collision_layer_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_mask_value(Global.CollisionLayer.PLAYER, false)

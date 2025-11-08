@@ -33,11 +33,7 @@ func set_velocity(dir: Vector2, spd: int) -> void:
 
 func shoot_bullet() -> void:
 	var bullet = bullet_type.instantiate()	
-	bullet.speed = speed
-	bullet.direction = direction
-	bullet.global_position = global_position
-	bullet.bullet_type = bullet_type
-	bullet.bullet_color = bullet_color
+	bullet.build(bullet_color, global_position, direction, speed)
 	get_tree().root.add_child(bullet)	
 	if repetitions > 0:
 		repetitions -= 1
