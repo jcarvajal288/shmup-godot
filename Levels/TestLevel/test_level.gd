@@ -30,5 +30,5 @@ func spawn_right() -> void:
 	var bullet_pattern = FIRE_STRAIGHT_PATTERN.instantiate()
 	bullet_pattern.set_bullet(DARK_PELLET, Global.BulletColor.DARK_BLUE)
 	bullet_pattern.set_fire_timings(1.0, 0.5, 5)
-	bullet_pattern.set_velocity(Global.TOWARDS_PLAYER, 350)
+	bullet_pattern.set_velocity(Vector2.DOWN, 350)
 	spawn_fairy(build_fairy(SPAWN_TOP_MIDDLE, "green", bullet_pattern, Vector2.DOWN, 200))

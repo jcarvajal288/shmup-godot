@@ -13,9 +13,11 @@ func build(color: Global.BulletColor, pos: Vector2, dir: Vector2, spd: int) -> v
 	global_position = pos
 	if dir == Global.TOWARDS_PLAYER:
 		var angle_to_target = global_position.angle_to_point(Global.PLAYER_LOCATION)
+		rotate(Vector2.DOWN.angle() + angle_to_target)
 		direction = Vector2.from_angle(angle_to_target)
 	else:
 		direction = dir
+		rotate(Vector2.DOWN.angle_to(direction))
 	speed = spd
 
 
