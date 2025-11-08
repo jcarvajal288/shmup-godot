@@ -12,10 +12,6 @@ func _ready() -> void:
 	set_collision_layer_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_mask_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_layer_value(Global.CollisionLayer.BULLET, true)
-	$Sprite2D.region_rect = Rect2(
-		Vector2(bullet_size * bullet_color, bullet_size * bullet_type),
-		Vector2(bullet_size, bullet_size)
-	)
 	velocity = direction * speed
 
 

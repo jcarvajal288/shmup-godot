@@ -1,11 +1,12 @@
-extends Node2D
+class_name FireStraight extends Node2D
 
-@export var bullet_type: PackedScene
-@export var delay_time = 1.0
-@export var repeat_time = 0.5
-@export var repetitions = 5
-@export var direction = Vector2.DOWN
-@export var speed = 200
+var bullet_type: PackedScene
+var bullet_color: Global.BulletColor
+var delay_time = 1.0
+var repeat_time = 0.5
+var repetitions = 5
+var direction = Vector2.DOWN
+var speed = 200
 
 
 func _ready() -> void:
@@ -14,13 +15,29 @@ func _ready() -> void:
 	$DelayTimer.start(delay_time)
 
 
+func set_bullet(bt: PackedScene, bc: Global.BulletColor) -> void:
+	bullet_type = bt
+	bullet_color = bc
+
+
+func set_fire_timings(d: float, r: float, reps: int) -> void:
+	delay_time = d
+	repeat_time = r
+	repetitions = reps
+
+
+func set_velocity(dir: Vector2, spd: int) -> void:
+	direction = dir
+	speed = spd
+
+
 func shoot_bullet() -> void:
 	var bullet = bullet_type.instantiate()	
 	bullet.speed = speed
 	bullet.direction = direction
 	bullet.global_position = global_position
-	bullet.bullet_type = Global.BulletType.CARD
-	bullet.bullet_color = Global.BulletColor.VIOLET
+	bullet.bullet_type = bullet_type
+	bullet.bullet_color = bullet_color
 	get_tree().root.add_child(bullet)	
 	if repetitions > 0:
 		repetitions -= 1
