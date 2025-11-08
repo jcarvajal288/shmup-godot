@@ -19,6 +19,8 @@ func shoot_bullet() -> void:
 	bullet.speed = speed
 	bullet.direction = direction
 	bullet.global_position = global_position
+	bullet.bullet_type = Global.BulletType.CARD
+	bullet.bullet_color = Global.BulletColor.VIOLET
 	get_tree().root.add_child(bullet)	
 	if repetitions > 0:
 		repetitions -= 1
