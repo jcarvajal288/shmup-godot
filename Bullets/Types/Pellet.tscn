@@ -7,7 +7,7 @@
 radius = 2.0
 height = 6.0
 
-[node name="PelletBullet" type="CharacterBody2D"]
+[node name="Pellet" type="CharacterBody2D"]
 script = ExtResource("1_khp83")
 bullet_type = 4
 

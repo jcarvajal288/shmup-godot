@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnebghcu6mo3r"]
+
+[ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_j2yur"]
+[ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_1d7dc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2yur"]
+radius = 2.236068
+
+[node name="RimmedCircle" type="CharacterBody2D"]
+script = ExtResource("1_j2yur")
+bullet_type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1d7dc")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j2yur")
