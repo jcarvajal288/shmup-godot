@@ -1,8 +1,8 @@
 class_name Bullet extends CharacterBody2D
 
-@export var bullet_size = 16.0
-@export var bullet_color = Global.BulletColor.GRAY
-@export var bullet_type = Global.BulletType.BEAM
+var bullet_size = 16.0
+var bullet_color = Global.BulletColor.GRAY
+var bullet_type = Global.BulletType.BEAM
 
 var speed = 0
 var direction = Vector2.UP
@@ -16,7 +16,11 @@ func init_velocity(dir: Vector2, spd: int) -> void:
 func build(color: Global.BulletColor, pos: Vector2, dir: Vector2, spd: int) -> void:
 	bullet_color = color
 	global_position = pos
-	direction = dir
+	if dir == Global.TOWARDS_PLAYER:
+		var angle_to_target = global_position.angle_to_point(Global.PLAYER_LOCATION)
+		direction = Vector2.from_angle(angle_to_target)
+	else:
+		direction = dir
 	speed = spd
 
 

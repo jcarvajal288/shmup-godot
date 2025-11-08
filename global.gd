@@ -1,5 +1,9 @@
 extends Node
 
+const TOWARDS_PLAYER = Vector2.ZERO
+
+var PLAYER_LOCATION = Vector2.ZERO
+
 enum CollisionLayer {
 	PLAYER = 1,
 	ENEMY = 2,

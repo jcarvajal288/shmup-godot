@@ -34,5 +34,4 @@ func spawn_fairy(location: Vector2, color: String, bullet_pattern: FireStraight,
 	fairy.color = color
 	fairy.add_child(bullet_pattern)
 	fairy.velocity = direction * speed
-	print(fairy.velocity)
 	get_parent().add_child.call_deferred(fairy)

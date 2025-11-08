@@ -15,6 +15,7 @@ func move() -> void:
 	).normalized()
 	velocity = snapped_vector * speed
 	move_and_slide()
+	Global.PLAYER_LOCATION = global_position
 
 
 func animate() -> void:
