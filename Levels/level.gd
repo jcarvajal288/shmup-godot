@@ -28,10 +28,14 @@ func wait_for_sec(secs: float) -> void:
 	await get_tree().create_timer(secs).timeout
 
 
-func spawn_fairy(location: Vector2, color: String, bullet_pattern: FireStraight, direction: Vector2, speed: int) -> void:
+func build_fairy(location: Vector2, color: String, bullet_pattern: FireStraight, direction: Vector2, speed: int) -> Fairy:
 	var fairy = FAIRY.instantiate()
 	fairy.global_position = location
 	fairy.color = color
 	fairy.add_child(bullet_pattern)
 	fairy.velocity = direction * speed
+	return fairy
+
+
+func spawn_fairy(fairy: Fairy) -> void:
 	get_parent().add_child.call_deferred(fairy)
