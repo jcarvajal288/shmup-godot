@@ -1,4 +1,4 @@
-class_name FireStraight extends Node2D
+class_name BulletPattern extends Node2D
 
 var bullet_type: Global.BulletType
 var bullet_color: Global.BulletColor
@@ -10,8 +10,8 @@ var speed = 200
 
 
 func _ready() -> void:
-	$DelayTimer.timeout.connect(shoot_bullet)
-	$RepeatTimer.timeout.connect(shoot_bullet)
+	$DelayTimer.timeout.connect(shoot)
+	$RepeatTimer.timeout.connect(shoot)
 	$DelayTimer.start(delay_time)
 
 
@@ -39,10 +39,11 @@ func copy_pattern(scene: PackedScene) -> FireStraight:
 	return copy
 
 
-func shoot_bullet() -> void:
-	var bullet = Global.BULLET_SCENES[bullet_type].instantiate()
-	bullet.build(bullet_color, global_position, direction, speed)
-	get_tree().root.add_child(bullet)	
+func shoot() -> void:
+	pass
+
+
+func do_repetitions() -> void:
 	if repetitions > 0:
 		repetitions -= 1
 	if repetitions != 0:

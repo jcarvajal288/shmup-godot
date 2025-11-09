@@ -17,7 +17,8 @@ const FAIRY: PackedScene = preload("res://Characters/Enemies/Fairy/Fairy.tscn")
 const BIG_FAIRY: PackedScene = preload("res://Characters/Enemies/BigFairy/BigFairy.tscn")
 
 
-const FIRE_STRAIGHT_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireStraight.tscn")
+const FIRE_STRAIGHT_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireStraight/FireStraight.tscn")
+const FIRE_ARC_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireArc/FireArc.tscn")
 
 const MOVE_STRAIGHT_PATTERN: PackedScene = preload("res://MovementPatterns/MoveStraight/MoveStraight.tscn")
 
@@ -26,7 +27,7 @@ func wait_for_sec(secs: float) -> void:
 	await get_tree().create_timer(secs).timeout
 
 
-func build_fairy(location: Vector2, color: String, bullet_pattern: FireStraight, move_pattern: MovementPattern) -> Fairy:
+func build_fairy(location: Vector2, color: String, bullet_pattern: BulletPattern, move_pattern: MovementPattern) -> Fairy:
 	var fairy = FAIRY.instantiate()
 	fairy.global_position = location
 	fairy.color = color
@@ -36,7 +37,7 @@ func build_fairy(location: Vector2, color: String, bullet_pattern: FireStraight,
 	return fairy
 
 
-func build_big_fairy(location: Vector2, bullet_pattern: FireStraight, move_pattern: MovementPattern) -> BigFairy:
+func build_big_fairy(location: Vector2, bullet_pattern: BulletPattern, move_pattern: MovementPattern) -> BigFairy:
 	var fairy = BIG_FAIRY.instantiate()
 	fairy.global_position = location
 	move_pattern.subject = fairy

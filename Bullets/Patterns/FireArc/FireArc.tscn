@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1xqxk15gt6x"]
+
+[ext_resource type="Script" uid="uid://bdwyvc52yb68f" path="res://Bullets/Patterns/FireArc/fire_arc.gd" id="1_fad8p"]
+
+[node name="FireArc" type="Node2D"]
+script = ExtResource("1_fad8p")
+
+[node name="DelayTimer" type="Timer" parent="."]
+
+[node name="RepeatTimer" type="Timer" parent="."]

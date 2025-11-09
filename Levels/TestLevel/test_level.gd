@@ -2,8 +2,8 @@ extends Level
 
 
 func _ready() -> void:
-	first_wave()
-	await wait_for_sec(1.0)
+	# first_wave()
+	# await wait_for_sec(1.0)
 	big_fairy()
 	# spawn_left()
 	# await wait_for_sec(1.0)
@@ -67,9 +67,10 @@ func big_fairy() -> void:
 	var move_pattern = MOVE_STRAIGHT_PATTERN.instantiate()
 	move_pattern.build(Vector2.DOWN, SLOWEST_SPEED)
 
-	var bullet_pattern = FIRE_STRAIGHT_PATTERN.instantiate()
+	var bullet_pattern = FIRE_ARC_PATTERN.instantiate()
 	bullet_pattern.set_bullet(Global.BulletType.DARK_PELLET, Global.BulletColor.DARK_BLUE)
-	bullet_pattern.set_fire_timings(0, 0, 0)
+	bullet_pattern.set_fire_timings(1.0, 0.5, 10)
 	bullet_pattern.set_velocity(Vector2.DOWN, 350)
+	bullet_pattern.set_spread(PI / 4, 4)
 
 	spawn_enemy(build_big_fairy(SPAWN_TOP_MIDDLE, bullet_pattern, move_pattern))
