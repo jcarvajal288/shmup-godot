@@ -14,6 +14,7 @@ const FASTEST_SPEED = 200.0
 
 
 const FAIRY: PackedScene = preload("res://Characters/Enemies/Fairy/Fairy.tscn")
+const BIG_FAIRY: PackedScene = preload("res://Characters/Enemies/BigFairy/BigFairy.tscn")
 
 
 const FIRE_STRAIGHT_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireStraight.tscn")
@@ -35,11 +36,20 @@ func build_fairy(location: Vector2, color: String, bullet_pattern: FireStraight,
 	return fairy
 
 
-func spawn_fairy(fairy: Fairy) -> void:
-	get_parent().add_child.call_deferred(fairy)
+func build_big_fairy(location: Vector2, bullet_pattern: FireStraight, move_pattern: MovementPattern) -> BigFairy:
+	var fairy = BIG_FAIRY.instantiate()
+	fairy.global_position = location
+	move_pattern.subject = fairy
+	fairy.add_child(bullet_pattern)
+	fairy.add_child(move_pattern)
+	return fairy
+
+
+func spawn_enemy(enemy: Enemy) -> void:
+	get_parent().add_child.call_deferred(enemy)
 
 
 func spawn_series(fairies: Array, delay: float) -> void:
 	for fairy in fairies:
-		spawn_fairy(fairy)
+		spawn_enemy(fairy)
 		await wait_for_sec(delay)
