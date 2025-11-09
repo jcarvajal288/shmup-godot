@@ -11,7 +11,9 @@ func set_spread(a: float, num: int) -> void:
 
 func shoot() -> void:
 	var start = direction.angle() - arc / 2.0
-	var step = arc / float(num_bullets)
+	if num_bullets < 2:
+		num_bullets = 2
+	var step = arc / float(num_bullets - 1)
 	var angles = range(num_bullets).map(func(i):
 		return start + i * step
 	)

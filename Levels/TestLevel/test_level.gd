@@ -71,6 +71,6 @@ func big_fairy() -> void:
 	bullet_pattern.set_bullet(Global.BulletType.DARK_PELLET, Global.BulletColor.DARK_BLUE)
 	bullet_pattern.set_fire_timings(1.0, 0.5, 10)
 	bullet_pattern.set_velocity(Vector2.DOWN, 350)
-	bullet_pattern.set_spread(PI / 4, 4)
+	bullet_pattern.set_spread(PI / 4, 9)
 
 	spawn_enemy(build_big_fairy(SPAWN_TOP_MIDDLE, bullet_pattern, move_pattern))
