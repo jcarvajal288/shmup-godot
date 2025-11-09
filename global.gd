@@ -29,16 +29,32 @@ enum BulletColor {
 }
 
 enum BulletType {
-	BEAM = 0,
-	ARROW = 1,
-	RIMMED_CIRCLE = 2,
-	CIRCLE = 3,
-	PELLET = 4,
-	KUNAI = 5,
-	KUNAI_2 = 6,
-	CARD = 7,
-	BULLET = 8,
-	DARK_PELLET = 9,
-	STAR = 10,
-	SPARKLY_CIRCLE = 11,
+	ARROW = 0,
+	BEAM = 1,
+	BULLET = 2,
+	CARD = 3,
+	CIRCLE = 4,
+	DARK_PELLET = 5,
+	KUNAI = 6,
+	KUNAI_2 = 7,
+	PELLET = 8,
+	RIMMED_CIRCLE = 9,
+	SPARKLY_CIRCLE = 10,
+	STAR = 11,
 }
+
+const BULLET_SCENES = [
+	preload("res://Bullets/Types/Arrow.tscn"),
+	preload("res://Bullets/Types/Beam.tscn"),
+	preload("res://Bullets/Types/Bullet.tscn"),
+	preload("res://Bullets/Types/Card.tscn"),
+	preload("res://Bullets/Types/Circle.tscn"),
+	preload("res://Bullets/Types/DarkPellet.tscn"),
+	preload("res://Bullets/Types/Kunai.tscn"),
+	preload("res://Bullets/Types/Kunai2.tscn"),
+	preload("res://Bullets/Types/Pellet.tscn"),
+	preload("res://Bullets/Types/RimmedCircle.tscn"),
+	preload("res://Bullets/Types/SparklyCircle.tscn"),
+	preload("res://Bullets/Types/Star.tscn")
+]
+

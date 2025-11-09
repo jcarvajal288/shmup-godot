@@ -10,20 +10,6 @@ const FAIRY: PackedScene = preload("res://Characters/Enemies/Fairy/Fairy.tscn")
 
 const FIRE_STRAIGHT_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireStraight.tscn")
 
-const ARROW: PackedScene = preload("res://Bullets/Types/Arrow.tscn")
-const BEAM: PackedScene = preload("res://Bullets/Types/Beam.tscn")
-const BULLET: PackedScene = preload("res://Bullets/Types/Bullet.tscn")
-const CARD: PackedScene = preload("res://Bullets/Types/Card.tscn")
-const CIRCLE: PackedScene = preload("res://Bullets/Types/Circle.tscn")
-const DARK_PELLET: PackedScene = preload("res://Bullets/Types/DarkPellet.tscn")
-const KUNAI: PackedScene = preload("res://Bullets/Types/Kunai.tscn")
-const KUNAI2: PackedScene = preload("res://Bullets/Types/Kunai2.tscn")
-const PELLET: PackedScene = preload("res://Bullets/Types/Pellet.tscn")
-const RIMMED_CIRCLE: PackedScene = preload("res://Bullets/Types/RimmedCircle.tscn")
-const SPARKLY_CIRCLE: PackedScene = preload("res://Bullets/Types/SparklyCircle.tscn")
-const STAR: PackedScene = preload("res://Bullets/Types/Star.tscn")
-
-
 func wait_for_sec(secs: float) -> void:
 	await get_tree().create_timer(secs).timeout
 
@@ -39,3 +25,9 @@ func build_fairy(location: Vector2, color: String, bullet_pattern: FireStraight,
 
 func spawn_fairy(fairy: Fairy) -> void:
 	get_parent().add_child.call_deferred(fairy)
+
+
+func spawn_line(fairies: Array, delay: float) -> void:
+	for fairy in fairies:
+		spawn_fairy(fairy)
+		await wait_for_sec(delay)
