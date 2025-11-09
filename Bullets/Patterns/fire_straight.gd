@@ -39,7 +39,6 @@ func copy_pattern(scene: PackedScene) -> FireStraight:
 	return copy
 
 
-
 func shoot_bullet() -> void:
 	var bullet = Global.BULLET_SCENES[bullet_type].instantiate()
 	bullet.build(bullet_color, global_position, direction, speed)
