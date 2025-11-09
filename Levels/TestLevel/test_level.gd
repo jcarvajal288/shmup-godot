@@ -12,36 +12,51 @@ func _ready() -> void:
 
 
 func spawn_left() -> void:
+	var move_pattern = MOVE_STRAIGHT_PATTERN.instantiate()
+	move_pattern.build(Vector2.DOWN, SLOW_SPEED)
+
 	var bullet_pattern = FIRE_STRAIGHT_PATTERN.instantiate()
 	bullet_pattern.set_bullet(Global.BulletType.ARROW, Global.BulletColor.BRIGHT_RED)
 	bullet_pattern.set_fire_timings(0.5, 0.25, 10)
 	bullet_pattern.set_velocity(Global.TOWARDS_PLAYER, MEDIUM_SPEED)
-	spawn_fairy(build_fairy(SPAWN_TOP_LEFT, "blue", bullet_pattern, Vector2.DOWN, SLOW_SPEED))
+	spawn_fairy(build_fairy(SPAWN_TOP_LEFT, "blue", bullet_pattern, move_pattern))
 
 
 func spawn_middle() -> void:
+	var move_pattern = MOVE_STRAIGHT_PATTERN.instantiate()
+	move_pattern.build(Vector2.DOWN, SLOW_SPEED)
+
 	var bullet_pattern = FIRE_STRAIGHT_PATTERN.instantiate()
 	bullet_pattern.set_bullet(Global.BulletType.CIRCLE, Global.BulletColor.LIGHT_BLUE)
 	bullet_pattern.set_fire_timings(1.0, 0.5, 8)
 	bullet_pattern.set_velocity(Global.TOWARDS_PLAYER, MEDIUM_SPEED)
-	spawn_fairy(build_fairy(SPAWN_TOP_RIGHT, "red", bullet_pattern, Vector2.DOWN, SLOW_SPEED))
+	spawn_fairy(build_fairy(SPAWN_TOP_RIGHT, "red", bullet_pattern, move_pattern))
 
 
 func spawn_right() -> void:
+	var move_pattern = MOVE_STRAIGHT_PATTERN.instantiate()
+	move_pattern.build(Vector2.DOWN, SLOW_SPEED)
+
 	var bullet_pattern = FIRE_STRAIGHT_PATTERN.instantiate()
 	bullet_pattern.set_bullet(Global.BulletType.DARK_PELLET, Global.BulletColor.DARK_BLUE)
 	bullet_pattern.set_fire_timings(1.0, 0.5, 5)
 	bullet_pattern.set_velocity(Vector2.DOWN, 350)
-	spawn_fairy(build_fairy(SPAWN_TOP_MIDDLE, "green", bullet_pattern, Vector2.DOWN, SLOW_SPEED))
+
+	spawn_fairy(build_fairy(SPAWN_TOP_MIDDLE, "green", bullet_pattern, move_pattern))
 
 
 func first_wave() -> void:
+	var move_pattern = MOVE_STRAIGHT_PATTERN.instantiate()
+	move_pattern.build(Vector2.from_angle(PI / 4), SLOW_SPEED)
+
 	var bullet_pattern = FIRE_STRAIGHT_PATTERN.instantiate()
 	bullet_pattern.set_bullet(Global.BulletType.ARROW, Global.BulletColor.BRIGHT_RED)
 	bullet_pattern.set_fire_timings(0.5, 0.25, 10)
 	bullet_pattern.set_velocity(Global.TOWARDS_PLAYER, FASTEST_SPEED)
+
 	var fairies = range(5).map(func(_i):
+		var move_pattern_copy = move_pattern.copy_pattern(MOVE_STRAIGHT_PATTERN)
 		var bullet_pattern_copy = bullet_pattern.copy_pattern(FIRE_STRAIGHT_PATTERN)
-		return build_fairy(SPAWN_TOP_LEFT, "blue", bullet_pattern_copy, Vector2.DOWN, SLOWEST_SPEED)
+		return build_fairy(SPAWN_TOP_LEFT, "blue", bullet_pattern_copy, move_pattern_copy)
 	)
 	spawn_series(fairies, 0.25)
