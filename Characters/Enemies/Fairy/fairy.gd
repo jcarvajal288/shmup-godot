@@ -1,4 +1,4 @@
-class_name Fairy extends CharacterBody2D
+class_name Fairy extends Enemy
 
 var color = "blue"
 

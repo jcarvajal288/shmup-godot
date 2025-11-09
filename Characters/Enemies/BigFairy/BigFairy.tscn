@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://umdbxc66p6a3"]
+
+[ext_resource type="Texture2D" uid="uid://comrv2anxs84v" path="res://Characters/Enemies/BigFairy/_art/big-fairy.png" id="1_pd4ww"]
+[ext_resource type="Script" uid="uid://dj7nd4psv6qii" path="res://Characters/Enemies/BigFairy/big_fairy.gd" id="1_pqu7v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqu7v"]
+radius = 22.090721
+
+[sub_resource type="Animation" id="Animation_pd4ww"]
+resource_name = "standard"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_pqu7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r61qs"]
+resource_name = "side"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wi2b"]
+_data = {
+&"RESET": SubResource("Animation_pqu7v"),
+&"side": SubResource("Animation_r61qs"),
+&"standard": SubResource("Animation_pd4ww")
+}
+
+[node name="BigFairy" type="CharacterBody2D"]
+script = ExtResource("1_pqu7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pd4ww")
+hframes = 4
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pqu7v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2wi2b")
+}
+autoplay = "standard"
