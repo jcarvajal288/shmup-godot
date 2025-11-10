@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://yg7e83elwxoc"]
+[gd_scene load_steps=9 format=3 uid="uid://yg7e83elwxoc"]
 
 [ext_resource type="Script" uid="uid://bjkq20tw44n8s" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ri4v3e2msd6i" path="res://Characters/Player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://illdbbfjgwop" path="res://Levels/Level1/Level1.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dv53qlojv7fnl" path="res://Components/GarbageCollector/GarbageCollector.tscn" id="4_1bvp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(20, 652)
@@ -47,3 +48,5 @@ position = Vector2(175, 650)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Level1" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="GarbageCollector" parent="." instance=ExtResource("4_1bvp3")]
