@@ -6,6 +6,7 @@
 script = ExtResource("1_lwjgm")
 
 [node name="DelayTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="RepeatTimer" type="Timer" parent="."]
 wait_time = 0.5

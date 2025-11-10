@@ -6,5 +6,6 @@
 script = ExtResource("1_fad8p")
 
 [node name="DelayTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="RepeatTimer" type="Timer" parent="."]
