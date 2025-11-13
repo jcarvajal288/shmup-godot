@@ -27,6 +27,11 @@ const FIRE_ARC_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireArc/Fi
 const MOVE_STRAIGHT_PATTERN: PackedScene = preload("res://MovementPatterns/MoveStraight/MoveStraight.tscn")
 
 
+func rand(from: float, to: float) -> float:
+	return Global.rng.randf_range(from, to)
+
+
+
 func wait_for_sec(secs: float) -> void:
 	await get_tree().create_timer(secs).timeout
 

@@ -1,5 +1,7 @@
 extends Node
 
+@onready var rng = RandomNumberGenerator.new()
+
 const TOWARDS_PLAYER = Vector2.ZERO
 
 var PLAYER_LOCATION = Vector2.ZERO
