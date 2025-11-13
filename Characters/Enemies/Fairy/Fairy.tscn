@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvuqswevxcjio"]
+[gd_scene load_steps=12 format=3 uid="uid://cvuqswevxcjio"]
 
 [ext_resource type="Texture2D" uid="uid://cbvwmgnxp2iu8" path="res://Characters/Enemies/Fairy/_art/fairies1.png" id="1_546qf"]
 [ext_resource type="Script" uid="uid://b4ff2xtvehhcr" path="res://Characters/Enemies/Fairy/fairy.gd" id="1_u7hxb"]
+[ext_resource type="PackedScene" uid="uid://cdxw1ijsdq6ms" path="res://Components/Hurtbox/Hurtbox.tscn" id="3_i5rd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7hxb"]
 
@@ -101,6 +102,8 @@ _data = {
 &"yellowStandard": SubResource("Animation_5u50o")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5rd0"]
+
 [node name="Fairy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -119,3 +122,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_i5rd0")
 }
 autoplay = "blueStandard"
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_i5rd0")]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_i5rd0")
+
+[editable path="Hurtbox"]
