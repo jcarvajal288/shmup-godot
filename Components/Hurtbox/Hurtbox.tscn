@@ -7,3 +7,5 @@ script = ExtResource("1_sgm36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 debug_color = Color(0, 1, 0, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
