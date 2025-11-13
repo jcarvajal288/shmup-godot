@@ -26,6 +26,7 @@ func _ready() -> void:
 	set_collision_layer_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_mask_value(Global.CollisionLayer.PLAYER, false)
 	set_collision_layer_value(Global.CollisionLayer.BULLET, true)
+	z_index = Global.RenderOrder.BULLET
 	$Sprite2D.region_rect = Rect2(
 		Vector2(bullet_size * bullet_color, $Sprite2D.region_rect.position.y),
 		Vector2(bullet_size, bullet_size)
