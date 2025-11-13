@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 var speed = 150
+var focus_speed = 75
 var shot_cooldown = 0.1
 var can_shoot = true
 
@@ -23,11 +24,15 @@ func manage_shot_cooldown() -> void:
 
 func move() -> void:
 	var movement_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var is_focused = Input.is_action_pressed("focus")
 	var snapped_vector = Vector2(
 		snapped(movement_vector.x, 0.5), 
 		snapped(movement_vector.y, 0.5)
 	).normalized()
-	velocity = snapped_vector * speed
+	if is_focused:
+		velocity = snapped_vector * focus_speed
+	else:
+		velocity = snapped_vector * speed
 	move_and_slide()
 	Global.PLAYER_LOCATION = global_position
 
