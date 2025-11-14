@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpqmx1y321gki"]
+[gd_scene load_steps=6 format=3 uid="uid://bpqmx1y321gki"]
 
 [ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_4wy6s"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_ulkc4"]
+[ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_ulkc4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j2yur"]
 radius = 2.236068
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7jt0"]
+radius = 3.0
+
 [node name="Circle" type="CharacterBody2D"]
 script = ExtResource("1_4wy6s")
-bullet_type = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ulkc4")
@@ -17,3 +20,11 @@ region_rect = Rect2(0, 48, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j2yur")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_ulkc4")]
+target = 1
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_j7jt0")
+
+[editable path="Hitbox"]

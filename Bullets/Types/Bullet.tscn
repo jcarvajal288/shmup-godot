@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxnqeqclycl2j"]
+[gd_scene load_steps=6 format=3 uid="uid://dxnqeqclycl2j"]
 
 [ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_l3ynb"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_4kfjt"]
+[ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_4kfjt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3ynb"]
 radius = 2.0
 height = 10.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lw1e6"]
+radius = 2.0
+height = 10.0
+
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_l3ynb")
-bullet_type = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4kfjt")
@@ -18,3 +22,11 @@ region_rect = Rect2(0, 128, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_l3ynb")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_4kfjt")]
+target = 1
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_lw1e6")
+
+[editable path="Hitbox"]

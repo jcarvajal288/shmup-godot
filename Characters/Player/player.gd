@@ -53,3 +53,9 @@ func animate() -> void:
 	else:
 		$AnimationPlayer.play("standard")
 	$Sprite2D.flip_h = velocity.x > 0
+
+
+func _on_hit() -> void:
+	visible = false
+	await get_tree().create_timer(1.0).timeout
+	visible = true

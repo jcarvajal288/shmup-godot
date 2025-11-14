@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ri4v3e2msd6i"]
+[gd_scene load_steps=11 format=3 uid="uid://ri4v3e2msd6i"]
 
 [ext_resource type="Script" uid="uid://de7ogeyjgtf4v" path="res://Characters/Player/player.gd" id="1_6mep6"]
 [ext_resource type="Texture2D" uid="uid://ddaunifjtm3tf" path="res://Characters/Player/_art/remilia.png" id="1_ht6wf"]
 [ext_resource type="PackedScene" uid="uid://l5r45blvjhuw" path="res://Characters/Player/FocusEffect/FocusEffect.tscn" id="3_yeefy"]
+[ext_resource type="PackedScene" uid="uid://cdxw1ijsdq6ms" path="res://Components/Hurtbox/Hurtbox.tscn" id="4_aj84o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht6wf"]
 size = Vector2(25, 34)
@@ -65,6 +66,9 @@ _data = {
 &"standard": SubResource("Animation_ht6wf")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oc658"]
+radius = 5.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6mep6")
 
@@ -87,4 +91,13 @@ autoplay = "standard"
 [node name="ShotTimer" type="Timer" parent="."]
 
 [node name="FocusEffect" parent="." instance=ExtResource("3_yeefy")]
-z_index = -1
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_aj84o")]
+target = 3
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_oc658")
+
+[connection signal="on_hit" from="Hurtbox" to="." method="_on_hit"]
+
+[editable path="Hurtbox"]

@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://klegpyx6m6pv"]
+[gd_scene load_steps=6 format=3 uid="uid://klegpyx6m6pv"]
 
 [ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_ba07u"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_yav38"]
+[ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_yav38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba07u"]
 size = Vector2(8, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esct6"]
+size = Vector2(8, 10)
+
 [node name="Card" type="CharacterBody2D"]
 script = ExtResource("1_ba07u")
-bullet_type = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yav38")
@@ -17,3 +20,11 @@ region_rect = Rect2(0, 112, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ba07u")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_yav38")]
+target = 1
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_esct6")
+
+[editable path="Hitbox"]
