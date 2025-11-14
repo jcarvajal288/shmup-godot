@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ri4v3e2msd6i"]
+[gd_scene load_steps=9 format=3 uid="uid://ri4v3e2msd6i"]
 
 [ext_resource type="Script" uid="uid://de7ogeyjgtf4v" path="res://Characters/Player/player.gd" id="1_6mep6"]
 [ext_resource type="Texture2D" uid="uid://ddaunifjtm3tf" path="res://Characters/Player/_art/remilia.png" id="1_ht6wf"]
+[ext_resource type="PackedScene" uid="uid://l5r45blvjhuw" path="res://Characters/Player/FocusEffect/FocusEffect.tscn" id="3_yeefy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht6wf"]
 size = Vector2(25, 34)
@@ -84,3 +85,6 @@ libraries = {
 autoplay = "standard"
 
 [node name="ShotTimer" type="Timer" parent="."]
+
+[node name="FocusEffect" parent="." instance=ExtResource("3_yeefy")]
+z_index = -1

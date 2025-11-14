@@ -31,8 +31,10 @@ func move() -> void:
 	).normalized()
 	if is_focused:
 		velocity = snapped_vector * focus_speed
+		$FocusEffect.visible = true
 	else:
 		velocity = snapped_vector * speed
+		$FocusEffect.visible = false
 	move_and_slide()
 	Global.PLAYER_LOCATION = global_position
 
