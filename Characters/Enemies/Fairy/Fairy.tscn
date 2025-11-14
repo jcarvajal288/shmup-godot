@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvuqswevxcjio"]
+[gd_scene load_steps=15 format=3 uid="uid://cvuqswevxcjio"]
 
 [ext_resource type="Texture2D" uid="uid://cbvwmgnxp2iu8" path="res://Characters/Enemies/Fairy/_art/fairies1.png" id="1_546qf"]
 [ext_resource type="Script" uid="uid://b4ff2xtvehhcr" path="res://Characters/Enemies/Fairy/fairy.gd" id="1_u7hxb"]
 [ext_resource type="PackedScene" uid="uid://cdxw1ijsdq6ms" path="res://Components/Hurtbox/Hurtbox.tscn" id="3_i5rd0"]
 [ext_resource type="PackedScene" uid="uid://b7gdug87i17f2" path="res://Characters/Enemies/Components/Health/Health.tscn" id="4_oled2"]
+[ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="5_5u50o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7hxb"]
 
@@ -105,6 +106,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5rd0"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j22l"]
+
 [node name="Fairy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -133,7 +136,14 @@ shape = SubResource("RectangleShape2D_i5rd0")
 
 [node name="Health" parent="." instance=ExtResource("4_oled2")]
 
+[node name="Hitbox" parent="." instance=ExtResource("5_5u50o")]
+target = 1
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_0j22l")
+
 [connection signal="on_hit" from="Hurtbox" to="Health" method="_on_hit"]
 [connection signal="on_death" from="Health" to="." method="_on_death"]
 
 [editable path="Hurtbox"]
+[editable path="Hitbox"]
