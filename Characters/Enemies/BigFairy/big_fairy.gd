@@ -8,6 +8,3 @@ func _init() -> void:
 func _ready() -> void:
 	$AnimationPlayer.play("standard")
 
-
-func _physics_process(_delta: float) -> void:
-	move_and_slide()

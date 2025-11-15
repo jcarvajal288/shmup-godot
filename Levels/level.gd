@@ -20,6 +20,8 @@ const FASTEST_SPEED = 200.0
 const FAIRY: PackedScene = preload("res://Characters/Enemies/Fairy/Fairy.tscn")
 const BIG_FAIRY: PackedScene = preload("res://Characters/Enemies/BigFairy/BigFairy.tscn")
 
+const RUMIA: PackedScene = preload("res://Characters/Enemies/Bosses/Rumia/Rumia.tscn")
+
 
 const FIRE_STRAIGHT_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireStraight/FireStraight.tscn")
 const FIRE_ARC_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireArc/FireArc.tscn")

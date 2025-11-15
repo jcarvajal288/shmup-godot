@@ -12,3 +12,7 @@ func _init() -> void:
 
 func _on_death() -> void:
 	queue_free()
+
+
+func _physics_process(_delta: float) -> void:
+	move_and_slide()
