@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8gxwjs2vilmk"]
+
+[ext_resource type="Script" uid="uid://c75mb11w0rojt" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard1/spell_card_1.gd" id="1_k8a50"]
+[ext_resource type="PackedScene" uid="uid://b7n7qmapipqti" path="res://Characters/Enemies/Components/StateMachine/StateMachine.tscn" id="2_oilb2"]
+[ext_resource type="PackedScene" uid="uid://dqhg0cw2oegvh" path="res://Characters/Enemies/Components/StateMachine/States/MoveTo/MoveTo.tscn" id="3_aj2ws"]
+
+[node name="SpellCard1" type="Node2D"]
+script = ExtResource("1_k8a50")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_oilb2")]
+starting_state = NodePath("MoveToRight")
+
+[node name="MoveToRight" parent="StateMachine" node_paths=PackedStringArray("next_state") instance=ExtResource("3_aj2ws")]
+destination = Vector2(270, 100)
+time_to_dest = 2.0
+next_state = NodePath("../MoveToLeft")
+
+[node name="MoveToLeft" parent="StateMachine" node_paths=PackedStringArray("next_state") instance=ExtResource("3_aj2ws")]
+destination = Vector2(90, 100)
+time_to_dest = 2.0
+next_state = NodePath("../MoveToCenter")
+
+[node name="MoveToCenter" parent="StateMachine" node_paths=PackedStringArray("next_state") instance=ExtResource("3_aj2ws")]
+destination = Vector2(180, 20)
+time_to_dest = 2.0
+next_state = NodePath("../MoveToRight")

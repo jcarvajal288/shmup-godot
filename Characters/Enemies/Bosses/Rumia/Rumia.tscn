@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvbkygy0wqp8o" path="res://Characters/Enemies/Bosses/Rumia/rumia.gd" id="1_s1xkx"]
 [ext_resource type="Texture2D" uid="uid://d227ivy5g4267" path="res://Characters/Enemies/Bosses/Rumia/_art/rumia.png" id="2_pwyh0"]
-[ext_resource type="PackedScene" uid="uid://donjgksw3n6ks" path="res://MovementPatterns/Accelerate/Accelerate.tscn" id="3_xp6ir"]
+[ext_resource type="PackedScene" uid="uid://c8gxwjs2vilmk" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard1/SpellCard1.tscn" id="3_xp6ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp6ir"]
 size = Vector2(27, 45)
@@ -136,8 +136,5 @@ libraries = {
 }
 autoplay = "still"
 
-[node name="Decelerate" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("3_xp6ir")]
-direction = Vector2(0, 1)
-starting_speed = 300.0
-time_to_decelerate = 2.0
+[node name="SpellCard1" parent="." node_paths=PackedStringArray("subject") instance=ExtResource("3_xp6ir")]
 subject = NodePath("..")

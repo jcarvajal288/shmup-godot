@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqhg0cw2oegvh"]
+
+[ext_resource type="Script" uid="uid://bvrojc2lr675m" path="res://Characters/Enemies/Components/StateMachine/States/MoveTo/move_to.gd" id="1_pl7oa"]
+
+[node name="MoveTo" type="Node"]
+script = ExtResource("1_pl7oa")
+metadata/_custom_type_script = "uid://bwst360ep5ph7"
