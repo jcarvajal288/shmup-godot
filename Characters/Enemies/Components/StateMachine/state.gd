@@ -1,11 +1,14 @@
 class_name State extends Node
 
+@export var animation_name: String
+var animation_player: AnimationPlayer
+
 var subject: Enemy
 var signal_state_change
 
 
 func enter() -> void:
-	pass
+	animation_player.play(animation_name)
 
 
 func exit() -> void:

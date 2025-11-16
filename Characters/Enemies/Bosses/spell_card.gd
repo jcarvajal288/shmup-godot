@@ -1,6 +1,7 @@
 class_name SpellCard extends Node
 
 @export var subject: Enemy
+@export var animation_player: AnimationPlayer
 
 
 func _unhandled_input(event: InputEvent) -> void:

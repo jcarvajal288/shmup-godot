@@ -15,4 +15,5 @@ func _on_death() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	$Sprite2D.flip_h = velocity.x < 0
 	move_and_slide()

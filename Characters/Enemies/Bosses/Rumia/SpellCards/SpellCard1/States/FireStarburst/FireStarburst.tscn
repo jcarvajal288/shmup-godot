@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bto2pfat8vwvn"]
+
+[ext_resource type="Script" uid="uid://dhi1k4gfox3fu" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard1/States/FireStarburst/fire_starburst.gd" id="1_4unxl"]
+
+[node name="FireStarburst" type="Node"]
+script = ExtResource("1_4unxl")
+animation_name = "spreadArms"
+metadata/_custom_type_script = "uid://bwst360ep5ph7"

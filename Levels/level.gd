@@ -23,19 +23,12 @@ const BIG_FAIRY: PackedScene = preload("res://Characters/Enemies/BigFairy/BigFai
 const RUMIA: PackedScene = preload("res://Characters/Enemies/Bosses/Rumia/Rumia.tscn")
 
 
-const FIRE_STRAIGHT_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireStraight/FireStraight.tscn")
-const FIRE_ARC_PATTERN: PackedScene = preload("res://Bullets/Patterns/FireArc/FireArc.tscn")
-
 const MOVE_STRAIGHT_PATTERN: PackedScene = preload("res://MovementPatterns/MoveStraight/MoveStraight.tscn")
 
 
 func rand(from: float, to: float) -> float:
 	return Global.rng.randf_range(from, to)
 
-
-
-func wait_for_sec(secs: float) -> void:
-	await get_tree().create_timer(secs).timeout
 
 
 func build_fairy(location: Vector2, color: String, bullet_pattern: BulletPattern, move_pattern: MovementPattern) -> Fairy:
@@ -64,7 +57,7 @@ func spawn_enemy(enemy: Enemy) -> void:
 func spawn_series(fairies: Array, delay: float) -> void:
 	for fairy in fairies:
 		spawn_enemy(fairy)
-		await wait_for_sec(delay)
+		await Global.wait_for_sec(delay)
 
 
 func move_straight(dir: Vector2, spd: float) -> MovementPattern:

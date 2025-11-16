@@ -2,9 +2,9 @@ class_name BulletPattern extends Node2D
 
 var bullet_type: Global.BulletType
 var bullet_color: Global.BulletColor
-var delay_time = 1.0
-var repeat_time = 0.5
-var repetitions = 5
+var delay_time = 0.0
+var repeat_time = 0.0
+var repetitions = 1
 var direction = Vector2.DOWN
 var speed = 200
 

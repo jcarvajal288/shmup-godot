@@ -6,9 +6,10 @@ var current_state: State
 
 signal signal_state_change
 
-func init(subject: Enemy) -> void:
+func init(subject: Enemy, animation_player: AnimationPlayer) -> void:
 	for child in get_children():
 		child.subject = subject
+		child.animation_player = animation_player
 		child.signal_state_change = signal_state_change
 	change_state(starting_state)
 	signal_state_change.connect(change_state)

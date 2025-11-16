@@ -68,3 +68,7 @@ const BULLET_SCENES = [
 	preload("res://Bullets/Types/Star.tscn")
 ]
 
+func wait_for_sec(secs: float) -> void:
+	await get_tree().create_timer(secs).timeout
+
+

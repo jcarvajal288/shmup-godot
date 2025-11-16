@@ -4,4 +4,5 @@
 
 [node name="MoveTo" type="Node"]
 script = ExtResource("1_pl7oa")
+animation_name = "moving"
 metadata/_custom_type_script = "uid://bwst360ep5ph7"
