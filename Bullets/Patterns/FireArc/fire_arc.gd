@@ -18,12 +18,10 @@ func shoot() -> void:
 		return start + i * step
 	)
 	var bullets = angles.map(func(angle):
-		var bullet = Global.BULLET_SCENES[bullet_type].instantiate()
+		var bullet = BulletPool.get_bullet(bullet_type)
 		bullet.build(bullet_color, global_position, Vector2.from_angle(angle), speed)
 		return bullet
 	)
 	for bullet in bullets:
-		get_tree().root.add_child(bullet)	
-	# 	await Global.wait_for_sec(0.0001)
-	# await Global.wait_for_sec(0.01)
+		bullet.enable(true)
 	do_repetitions()
