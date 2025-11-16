@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://deivj2idaddhu"]
 
-[ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_vhe1t"]
+[ext_resource type="Script" uid="uid://c20itbptflg41" path="res://Bullets/Types/sparkly_circle.gd" id="1_ux3i4"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_ux3i4"]
 [ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_ux3i4"]
 
@@ -11,7 +11,7 @@ radius = 4.0
 radius = 4.1231055
 
 [node name="SparklyCircle" type="CharacterBody2D"]
-script = ExtResource("1_vhe1t")
+script = ExtResource("1_ux3i4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ux3i4")

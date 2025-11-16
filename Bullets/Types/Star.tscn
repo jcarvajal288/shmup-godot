@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dprwwauu4j3g6"]
 
-[ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_w1sy8"]
+[ext_resource type="Script" uid="uid://vifbb456ebej" path="res://Bullets/Types/star.gd" id="1_hha6q"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_hha6q"]
 [ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_hha6q"]
 
@@ -11,7 +11,7 @@ radius = 3.0
 radius = 3.0
 
 [node name="Star" type="CharacterBody2D"]
-script = ExtResource("1_w1sy8")
+script = ExtResource("1_hha6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hha6q")

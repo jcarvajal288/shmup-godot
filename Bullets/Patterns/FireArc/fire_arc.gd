@@ -24,4 +24,6 @@ func shoot() -> void:
 	)
 	for bullet in bullets:
 		get_tree().root.add_child(bullet)	
+	# 	await Global.wait_for_sec(0.0001)
+	# await Global.wait_for_sec(0.01)
 	do_repetitions()

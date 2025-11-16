@@ -13,10 +13,14 @@ func enter() -> void:
 
 func fire() -> void:
 	var speeds = [100, 125, 150, 175, 200]
-	for speed in speeds:
+	var patterns = speeds.map(func(speed):
 		var pattern = BulletPatterns.FIRE_ARC.instantiate()
 		pattern.set_bullet(bullet_type, bullet_color)
 		pattern.set_velocity(Vector2.DOWN, speed)
 		pattern.set_spread(2 * PI, 64)
 		pattern.global_position = subject.global_position
-		get_tree().root.add_child.call_deferred(pattern)
+		return pattern
+	)
+	for pattern in patterns:
+		get_tree().root.add_child(pattern)
+		# await Global.wait_for_sec(0.01)

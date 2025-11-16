@@ -2,7 +2,6 @@ class_name Bullet extends CharacterBody2D
 
 var bullet_size = 16.0
 var bullet_color = Global.BulletColor.GRAY
-var bullet_type = Global.BulletType.BEAM
 
 var speed = 0
 var direction = Vector2.UP

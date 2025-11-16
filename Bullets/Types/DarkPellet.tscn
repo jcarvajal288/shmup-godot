@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3pks37012m2t"]
 
-[ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_w6arc"]
+[ext_resource type="Script" uid="uid://bxw83l825encv" path="res://Bullets/Types/dark_pellet.gd" id="1_ulwub"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_ulwub"]
 [ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_ulwub"]
 
@@ -13,7 +13,7 @@ radius = 2.0
 height = 8.0
 
 [node name="DarkPellet" type="CharacterBody2D"]
-script = ExtResource("1_w6arc")
+script = ExtResource("1_ulwub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ulwub")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc2s62h2d30g8"]
 
-[ext_resource type="Script" uid="uid://dg57k87xvybya" path="res://Bullets/bullet.gd" id="1_p4lta"]
+[ext_resource type="Script" uid="uid://takarl2sw0ts" path="res://Bullets/Types/kunai_2.gd" id="1_vxuxx"]
 [ext_resource type="Texture2D" uid="uid://vb1q0j2lon17" path="res://_art/bullets.png" id="2_vxuxx"]
 [ext_resource type="PackedScene" uid="uid://b7gnq8j8tl3lo" path="res://Components/Hitbox/Hitbox.tscn" id="3_vxuxx"]
 
@@ -13,7 +13,7 @@ radius = 1.0
 height = 10.0
 
 [node name="Kunai2" type="CharacterBody2D"]
-script = ExtResource("1_p4lta")
+script = ExtResource("1_vxuxx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vxuxx")

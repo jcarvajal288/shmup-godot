@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 BulletPatterns="*res://Bullets/Patterns/global_bullet_patterns.gd"
+BulletPool="*res://Bullets/bullet_pool.gd"
 
 [display]
 
