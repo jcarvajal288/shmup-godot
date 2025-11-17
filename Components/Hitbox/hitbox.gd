@@ -4,7 +4,12 @@ extends Area2D
 
 func _ready() -> void:
 	set_collision_mask_value(target, true)
-
+	
 
 func _on_area_entered(_area: Area2D) -> void:
 	get_parent().queue_free()
+
+
+func enable(is_enabled: bool) -> void:
+	monitoring = is_enabled
+	monitorable = is_enabled

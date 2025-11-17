@@ -31,6 +31,7 @@ func _ready() -> void:
 	set_collision_layer_value(Global.CollisionLayer.BULLET, true)
 	z_index = Global.RenderOrder.BULLET
 	enable(false)
+	
 
 
 func _physics_process(_delta: float) -> void:
@@ -42,3 +43,7 @@ func enable(is_enabled: bool) -> void:
 	set_process(is_enabled)
 	set_physics_process(is_enabled)
 	set_process_input(is_enabled)
+
+
+func enable_hitbox(is_enabled: bool) -> void:
+	$Hitbox.enable(is_enabled)
