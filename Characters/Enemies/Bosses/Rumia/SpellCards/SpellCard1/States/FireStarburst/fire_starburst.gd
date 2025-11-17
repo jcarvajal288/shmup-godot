@@ -23,4 +23,3 @@ func fire() -> void:
 	)
 	for pattern in patterns:
 		get_tree().root.add_child(pattern)
-		# await Global.wait_for_sec(0.01)
