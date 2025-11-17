@@ -14,10 +14,10 @@ enum CollisionLayer {
 }
 
 enum RenderOrder {
-	PLAYER = 10,
+	PLAYER = 5,
 	SHOT = 1,
-	ENEMY = 5,
-	BULLET = 9,
+	ENEMY = 9,
+	BULLET = 10,
 }
 
 enum BulletColor {

@@ -10,7 +10,11 @@ func set_spread(a: float, num: int) -> void:
 
 
 func shoot() -> void:
-	var start = direction.angle() - arc / 2.0
+	var start 
+	if direction == Global.TOWARDS_PLAYER:
+		start = (Global.PLAYER_LOCATION - global_position).angle() - arc / 2.0
+	else:
+		start = direction.angle() - arc / 2.0
 	if num_bullets < 2:
 		num_bullets = 2
 	var step = arc / float(num_bullets - 1)

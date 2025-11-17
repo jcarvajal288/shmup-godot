@@ -16,8 +16,8 @@ func fire() -> void:
 	var patterns = speeds.map(func(speed):
 		var pattern = BulletPatterns.FIRE_ARC.instantiate()
 		pattern.set_bullet(bullet_type, bullet_color)
-		pattern.set_velocity(Vector2.DOWN, speed)
-		pattern.set_spread(2 * PI, 64)
+		pattern.set_velocity(Global.TOWARDS_PLAYER, speed)
+		pattern.set_spread(2 * PI, 63)
 		pattern.global_position = subject.global_position
 		return pattern
 	)
