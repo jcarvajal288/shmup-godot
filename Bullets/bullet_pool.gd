@@ -4,30 +4,35 @@ const POOL_SIZE = 500
 var pool = {}
 
 
-func fill_pool() -> void:
-	print('filling')
-	var batch_size = 20
-	var count = 0
-	var bullet_types = [Global.BulletType.CIRCLE]
-	for bullet_type in bullet_types:
+func _ready() -> void:
+	for bullet_type in Global.BulletType.values():
 		pool[bullet_type] = []
-		print(bullet_type)
-		for _i in range(POOL_SIZE):
-			var bullet = create_bullet(bullet_type)
-			pool[bullet_type].push_back(bullet)
-			count += 1
-			if count >= batch_size:
-				count = 0
-				await get_tree().process_frame
-		await Global.wait_for_sec(1.0)
-	print('fill ended')
+
+
+# func fill_pool() -> void:
+# 	print('filling')
+# 	var batch_size = 20
+# 	var count = 0
+# 	var bullet_types = [Global.BulletType.CIRCLE]
+# 	for bullet_type in bullet_types:
+# 		pool[bullet_type] = []
+# 		print(bullet_type)
+# 		for _i in range(POOL_SIZE):
+# 			var bullet = create_bullet(bullet_type)
+# 			pool[bullet_type].push_back(bullet)
+# 			count += 1
+# 			if count >= batch_size:
+# 				count = 0
+# 				await get_tree().process_frame
+# 		await Global.wait_for_sec(1.0)
+# 	print('fill ended')
 
 
 func create_bullet(bullet_type: Global.BulletType) -> Bullet:
 	var bullet = Global.BULLET_SCENES[bullet_type].instantiate()
 	bullet.global_position = Vector2(-100, -100)
 	bullet.enable(false)
-	get_tree().root.add_child.call_deferred(bullet)
+	get_tree().root.add_child(bullet)
 	return bullet
 
 
