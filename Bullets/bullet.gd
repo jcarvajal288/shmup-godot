@@ -1,4 +1,4 @@
-class_name Bullet extends CharacterBody2D
+class_name Bullet extends Area2D
 
 var bullet_size = 16.0
 var bullet_color = Global.BulletColor.GRAY
@@ -22,7 +22,6 @@ func build(color: Global.BulletColor, pos: Vector2, dir: Vector2, spd: int) -> v
 		Vector2(bullet_size * bullet_color, $Sprite2D.region_rect.position.y),
 		Vector2(bullet_size, bullet_size)
 	)
-	velocity = direction * speed
 
 
 func _ready() -> void:
@@ -34,8 +33,9 @@ func _ready() -> void:
 	
 
 
-func _physics_process(_delta: float) -> void:
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	var displacement = speed * direction * delta
+	global_position += displacement
 
 
 func enable(is_enabled: bool) -> void:
@@ -44,6 +44,3 @@ func enable(is_enabled: bool) -> void:
 	set_physics_process(is_enabled)
 	set_process_input(is_enabled)
 
-
-func enable_hitbox(is_enabled: bool) -> void:
-	$Hitbox.enable(is_enabled)

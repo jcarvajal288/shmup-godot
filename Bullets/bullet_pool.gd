@@ -27,7 +27,6 @@ func create_bullet(bullet_type: Global.BulletType) -> Bullet:
 	var bullet = Global.BULLET_SCENES[bullet_type].instantiate()
 	bullet.global_position = Vector2(-100, -100)
 	bullet.enable(false)
-	bullet.enable_hitbox(false)
 	get_tree().root.add_child.call_deferred(bullet)
 	return bullet
 
@@ -40,7 +39,6 @@ func get_bullet(bullet_type: Global.BulletType) -> Bullet:
 	else:
 		bullet = pool[bullet_type].pop_back()
 	bullet.enable(true)
-	bullet.enable_hitbox(false)
 	return bullet
 
 
