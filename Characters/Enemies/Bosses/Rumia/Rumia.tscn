@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0qmai7i3wuay"]
+[gd_scene load_steps=15 format=3 uid="uid://b0qmai7i3wuay"]
 
 [ext_resource type="Script" uid="uid://bvbkygy0wqp8o" path="res://Characters/Enemies/Bosses/Rumia/rumia.gd" id="1_s1xkx"]
 [ext_resource type="Texture2D" uid="uid://d227ivy5g4267" path="res://Characters/Enemies/Bosses/Rumia/_art/rumia.png" id="2_pwyh0"]
 [ext_resource type="PackedScene" uid="uid://c8gxwjs2vilmk" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard1/SpellCard1.tscn" id="3_xp6ir"]
+[ext_resource type="PackedScene" uid="uid://b7gdug87i17f2" path="res://Characters/Enemies/Components/Health/Health.tscn" id="4_p2af2"]
+[ext_resource type="PackedScene" uid="uid://cdxw1ijsdq6ms" path="res://Components/Hurtbox/Hurtbox.tscn" id="5_1w1oj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp6ir"]
 size = Vector2(27, 45)
@@ -115,6 +117,9 @@ _data = {
 &"still": SubResource("Animation_xp6ir")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1f2y"]
+size = Vector2(27, 45)
+
 [node name="Rumia" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -139,3 +144,15 @@ autoplay = "still"
 [node name="SpellCard1" parent="." node_paths=PackedStringArray("subject", "animation_player") instance=ExtResource("3_xp6ir")]
 subject = NodePath("..")
 animation_player = NodePath("../AnimationPlayer")
+
+[node name="Health" parent="." instance=ExtResource("4_p2af2")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("5_1w1oj")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_v1f2y")
+
+[connection signal="on_hit" from="Hurtbox" to="Health" method="_on_hit"]
+
+[editable path="Hurtbox"]
