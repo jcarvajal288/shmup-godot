@@ -5,7 +5,7 @@ extends Area2D
 signal on_hit
 
 func _ready() -> void:
-	set_collision_layer_value(target, true)
+	set_collision_mask_value(target, true)
 
 
 func _on_area_entered(_area: Area2D) -> void:
