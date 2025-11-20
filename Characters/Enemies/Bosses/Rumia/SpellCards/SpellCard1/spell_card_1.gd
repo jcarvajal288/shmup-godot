@@ -1,5 +1,7 @@
 extends SpellCard
 
 
-func _ready() -> void:
+func enter() -> void:
+	super()
 	$StateMachine.init(subject, animation_player)
+	subject.set_health(30)

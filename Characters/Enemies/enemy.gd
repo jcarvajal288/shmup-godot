@@ -10,6 +10,14 @@ func _init() -> void:
 	z_index = Global.RenderOrder.ENEMY
 
 
+func _ready() -> void:
+	$Health.set_health(hp)
+
+
+func set_health(new_hp: int) -> void:
+	$Health.set_health(new_hp)
+
+
 func _on_death() -> void:
 	queue_free()
 

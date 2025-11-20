@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjxbswmriao0x"]
+
+[ext_resource type="Script" uid="uid://b1bmeqo7l4pvt" path="res://Characters/Enemies/Components/SpellSequence/spell_sequence.gd" id="1_stxjh"]
+
+[node name="SpellSequence" type="Node"]
+script = ExtResource("1_stxjh")
