@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0qmai7i3wuay"]
+[gd_scene load_steps=17 format=3 uid="uid://b0qmai7i3wuay"]
 
 [ext_resource type="Script" uid="uid://bvbkygy0wqp8o" path="res://Characters/Enemies/Bosses/Rumia/rumia.gd" id="1_s1xkx"]
 [ext_resource type="Texture2D" uid="uid://d227ivy5g4267" path="res://Characters/Enemies/Bosses/Rumia/_art/rumia.png" id="2_pwyh0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gdug87i17f2" path="res://Characters/Enemies/Components/Health/Health.tscn" id="4_p2af2"]
 [ext_resource type="PackedScene" uid="uid://cdxw1ijsdq6ms" path="res://Components/Hurtbox/Hurtbox.tscn" id="5_1w1oj"]
 [ext_resource type="PackedScene" uid="uid://bjxbswmriao0x" path="res://Characters/Enemies/Components/SpellSequence/SpellSequence.tscn" id="5_v1f2y"]
+[ext_resource type="PackedScene" uid="uid://cgl5wdt3mj8dv" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard2/SpellCard2.tscn" id="7_6yxa3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp6ir"]
 size = Vector2(27, 45)
@@ -150,12 +151,13 @@ autoplay = "still"
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_v1f2y")
 
-[node name="SpellSequence" parent="." node_paths=PackedStringArray("subject", "animation_player", "first_card") instance=ExtResource("5_v1f2y")]
-subject = NodePath("..")
-animation_player = NodePath("../AnimationPlayer")
+[node name="SpellSequence" parent="." node_paths=PackedStringArray("first_card") instance=ExtResource("5_v1f2y")]
 first_card = NodePath("SpellCard1")
 
-[node name="SpellCard1" parent="SpellSequence" instance=ExtResource("3_xp6ir")]
+[node name="SpellCard1" parent="SpellSequence" node_paths=PackedStringArray("next_card") instance=ExtResource("3_xp6ir")]
+next_card = NodePath("../SpellCard2")
+
+[node name="SpellCard2" parent="SpellSequence" instance=ExtResource("7_6yxa3")]
 
 [connection signal="on_hit" from="Hurtbox" to="Health" method="_on_hit"]
 

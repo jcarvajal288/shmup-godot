@@ -6,3 +6,7 @@ extends Enemy
 # 		$AnimationPlayer.play("moving")
 # 	elif $AnimationPlayer.current_animation == "moving":
 # 		$AnimationPlayer.play("moveTransition")
+
+
+func _ready() -> void:
+	$SpellSequence.init(self)

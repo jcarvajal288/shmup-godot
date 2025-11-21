@@ -3,7 +3,6 @@ class_name SpellCard extends Node
 @export var next_card: SpellCard
 
 var subject: Enemy
-var animation_player: AnimationPlayer
 
 var signal_spell_change
 
@@ -15,7 +14,20 @@ func set_enabled(is_enabled: bool) -> void:
 
 
 func enter() -> void:
-	pass
+	if not subject.health.on_death.is_connected(_on_death):
+		subject.health.on_death.connect(_on_death)
+	set_enabled(true)
+
+
+func exit() -> void:
+	set_enabled(false)
+
+
+func _on_death() -> void:
+	if next_card:
+		signal_spell_change.emit(next_card)
+	else:
+		print("boss defeated")
 
 
 func _unhandled_input(event: InputEvent) -> void:

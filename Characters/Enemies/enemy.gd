@@ -1,5 +1,8 @@
 class_name Enemy extends CharacterBody2D
 
+@onready var animation_player = $AnimationPlayer
+@onready var health = $Health
+
 var hp = 5
 
 func _init() -> void:
@@ -12,10 +15,6 @@ func _init() -> void:
 
 func _ready() -> void:
 	$Health.set_health(hp)
-
-
-func set_health(new_hp: int) -> void:
-	$Health.set_health(new_hp)
 
 
 func _on_death() -> void:
