@@ -1,7 +1,5 @@
 class_name Level extends Node
 
-const INFINITE = 999999999999
-
 const SPAWN_TOP_LEFT = Vector2(25, -25)
 const SPAWN_TOP_MIDDLE_LEFT = Vector2(90, -25)
 const SPAWN_TOP_MIDDLE = Vector2(180, -25)

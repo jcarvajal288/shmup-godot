@@ -2,6 +2,8 @@ extends Node
 
 @onready var rng = RandomNumberGenerator.new()
 
+const INFINITE = 999999999999
+
 const TOWARDS_PLAYER = Vector2.ZERO
 
 var PLAYER_LOCATION = Vector2.ZERO

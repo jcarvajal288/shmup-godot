@@ -1,12 +1,12 @@
 class_name BulletPattern extends Node2D
 
-var bullet_type: Global.BulletType
-var bullet_color: Global.BulletColor
+@export var bullet_type: Global.BulletType
+@export var bullet_color: Global.BulletColor
+@export var speed = 200
 var delay_time = 0.01
 var repeat_time = 0.01
 var repetitions = 1
 var direction = Vector2.DOWN
-var speed = 200
 
 
 func _ready() -> void:

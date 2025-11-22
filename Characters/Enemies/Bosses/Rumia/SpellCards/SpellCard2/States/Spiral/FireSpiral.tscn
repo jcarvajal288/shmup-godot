@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2uktg6cm238"]
+
+[ext_resource type="Script" uid="uid://gj0tnaxc8exh" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard2/States/Spiral/fire_spiral.gd" id="1_51opc"]
+
+[node name="FireSpiral" type="Node"]
+script = ExtResource("1_51opc")
+metadata/_custom_type_script = "uid://bwst360ep5ph7"
