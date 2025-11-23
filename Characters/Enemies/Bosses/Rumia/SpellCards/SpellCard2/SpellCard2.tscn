@@ -1,24 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgl5wdt3mj8dv"]
+[gd_scene load_steps=4 format=3 uid="uid://cgl5wdt3mj8dv"]
 
 [ext_resource type="Script" uid="uid://cttf84wgmuuiv" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard2/spell_card_2.gd" id="1_tc1rd"]
 [ext_resource type="PackedScene" uid="uid://b7n7qmapipqti" path="res://Characters/Enemies/Components/StateMachine/StateMachine.tscn" id="2_hymok"]
-[ext_resource type="PackedScene" uid="uid://dqhg0cw2oegvh" path="res://Characters/Enemies/Components/StateMachine/States/MoveTo/MoveTo.tscn" id="2_wbdf6"]
-[ext_resource type="PackedScene" uid="uid://bw2uktg6cm238" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard2/States/Spiral/FireSpiral.tscn" id="4_dih6f"]
+[ext_resource type="PackedScene" uid="uid://diax0o2sc8xm6" path="res://Characters/Enemies/Components/StateMachine/States/MoveBetween/MoveBetween.tscn" id="3_hymok"]
 
 [node name="SpellCard2" type="Node2D"]
 script = ExtResource("1_tc1rd")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_hymok")]
-starting_state = NodePath("FireSpiral")
+starting_state = NodePath("MoveBetween")
 
-[node name="MoveTo" parent="StateMachine" node_paths=PackedStringArray("next_state") instance=ExtResource("2_wbdf6")]
-destination = Vector2(180, 180)
-time_to_dest = 3.0
-next_state = NodePath("../FireSpiral")
-
-[node name="FireSpiral" parent="StateMachine" instance=ExtResource("4_dih6f")]
-bullet_type = 4
-bullet_color = 6
-num_arms = 4
-rotation_speed = 3.0
-fire_interval = 0.1
+[node name="MoveBetween" parent="StateMachine" instance=ExtResource("3_hymok")]
+locations = Array[Vector2]([Vector2(270, 180), Vector2(90, 180), Vector2(180, 80)])
+travel_time = 3.0

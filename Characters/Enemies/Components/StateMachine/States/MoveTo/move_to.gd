@@ -2,7 +2,6 @@ extends State
 
 @export var destination: Vector2
 @export var time_to_dest: float
-@export var next_state: State
 
 var deceleration = 0.0
 
@@ -17,7 +16,7 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	super(delta)
-	if subject.velocity.length() <= 1.0:
+	if subject.velocity.length() <= 5.0:
 		return next_state
 	var direction = subject.velocity.normalized()
 	subject.velocity += direction * deceleration * delta

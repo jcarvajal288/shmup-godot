@@ -1,6 +1,5 @@
 extends State
 
-@export var next_state: State
 @export var bullet_type: Global.BulletType
 @export var bullet_color: Global.BulletColor
 

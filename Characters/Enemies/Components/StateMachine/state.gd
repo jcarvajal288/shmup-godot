@@ -1,6 +1,7 @@
 class_name State extends Node
 
 @export var animation_name: String
+@export var next_state: State
 
 var subject: Enemy
 var signal_state_change

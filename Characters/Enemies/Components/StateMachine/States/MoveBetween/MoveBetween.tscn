@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://diax0o2sc8xm6"]
+
+[ext_resource type="Script" uid="uid://dyhxnk601iue6" path="res://Characters/Enemies/Components/StateMachine/States/MoveBetween/move_between.gd" id="1_u2glg"]
+
+[node name="MoveBetween" type="Node"]
+script = ExtResource("1_u2glg")
+animation_name = "moving"
+metadata/_custom_type_script = "uid://bwst360ep5ph7"
