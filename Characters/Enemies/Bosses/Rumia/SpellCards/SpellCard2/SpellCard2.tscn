@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgl5wdt3mj8dv"]
+[gd_scene load_steps=3 format=3 uid="uid://cgl5wdt3mj8dv"]
 
 [ext_resource type="Script" uid="uid://cttf84wgmuuiv" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard2/spell_card_2.gd" id="1_tc1rd"]
-[ext_resource type="PackedScene" uid="uid://b7n7qmapipqti" path="res://Characters/Enemies/Components/StateMachine/StateMachine.tscn" id="2_hymok"]
 [ext_resource type="PackedScene" uid="uid://diax0o2sc8xm6" path="res://Characters/Enemies/Components/StateMachine/States/MoveBetween/MoveBetween.tscn" id="3_hymok"]
 
 [node name="SpellCard2" type="Node2D"]
 script = ExtResource("1_tc1rd")
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_hymok")]
-starting_state = NodePath("MoveBetween")
-
-[node name="MoveBetween" parent="StateMachine" instance=ExtResource("3_hymok")]
+[node name="MoveBetween" parent="." instance=ExtResource("3_hymok")]
 locations = Array[Vector2]([Vector2(270, 180), Vector2(90, 180), Vector2(180, 80)])
-travel_time = 3.0
+travel_time = 2.0

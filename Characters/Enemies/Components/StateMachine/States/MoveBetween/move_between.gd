@@ -1,4 +1,4 @@
-extends State
+extends MovementPattern
 
 @export var locations: Array[Vector2]
 @export var travel_time: float
@@ -8,7 +8,6 @@ var deceleration = 0
 
 
 func enter() -> void:
-	super()
 	move_to_next_location()
 
 
@@ -20,12 +19,10 @@ func move_to_next_location() -> void:
 	subject.velocity = displacement.normalized() * speed
 
 
-func process_physics(delta: float) -> State:
-	super(delta)
+func _physics_process(delta: float) -> void:
 	if subject.velocity.length() <= 5.0:
 		next_location = (next_location + 1) % locations.size()
 		move_to_next_location()
 	else:
 		var direction = subject.velocity.normalized()
 		subject.velocity += direction * deceleration * delta
-	return null	
