@@ -152,7 +152,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_v1f2y")
 
 [node name="SpellSequence" parent="." node_paths=PackedStringArray("first_card") instance=ExtResource("5_v1f2y")]
-first_card = NodePath("SpellCard2")
+first_card = NodePath("SpellCard1")
 
 [node name="SpellCard1" parent="SpellSequence" node_paths=PackedStringArray("next_card") instance=ExtResource("3_xp6ir")]
 next_card = NodePath("../SpellCard2")
