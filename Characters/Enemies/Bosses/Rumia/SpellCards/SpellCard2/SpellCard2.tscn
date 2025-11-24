@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgl5wdt3mj8dv"]
 
 [ext_resource type="Script" uid="uid://cttf84wgmuuiv" path="res://Characters/Enemies/Bosses/Rumia/SpellCards/SpellCard2/spell_card_2.gd" id="1_tc1rd"]
-[ext_resource type="PackedScene" uid="uid://bvrbqjmiqb2si" path="res://Bullets/Patterns/Spiral/Spiral.tscn" id="3_dih6f"]
+[ext_resource type="PackedScene" uid="uid://bvrbqjmiqb2si" path="res://Bullets/Patterns/FireSpiral/FireSpiral.tscn" id="3_dih6f"]
 [ext_resource type="PackedScene" uid="uid://diax0o2sc8xm6" path="res://Characters/Enemies/Components/StateMachine/States/MoveBetween/MoveBetween.tscn" id="3_hymok"]
 
 [node name="SpellCard2" type="Node2D"]
@@ -11,7 +11,7 @@ script = ExtResource("1_tc1rd")
 locations = Array[Vector2]([Vector2(270, 180), Vector2(90, 180), Vector2(180, 80)])
 travel_time = 2.0
 
-[node name="Spiral" parent="." instance=ExtResource("3_dih6f")]
+[node name="FireSpiral" parent="." instance=ExtResource("3_dih6f")]
 num_arms = 4
 rotation_speed = 2.0
 fire_interval = 0.05

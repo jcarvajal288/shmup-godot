@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvrbqjmiqb2si"]
-
-[ext_resource type="Script" uid="uid://pt45u76fss1a" path="res://Bullets/Patterns/Spiral/spiral.gd" id="1_vnqks"]
-
-[node name="Spiral" type="Node2D"]
-script = ExtResource("1_vnqks")
