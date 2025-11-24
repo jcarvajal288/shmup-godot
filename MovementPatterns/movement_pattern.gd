@@ -1,4 +1,4 @@
-class_name MovementPattern extends Node
+class_name MovementPattern extends Node2D
 
 @export var subject: CharacterBody2D
 

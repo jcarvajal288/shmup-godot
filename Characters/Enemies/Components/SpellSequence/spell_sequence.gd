@@ -1,4 +1,4 @@
-extends Node
+class_name SpellSequence extends Node2D
 
 @export var first_card: SpellCard
 

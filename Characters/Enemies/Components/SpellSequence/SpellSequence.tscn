@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://b1bmeqo7l4pvt" path="res://Characters/Enemies/Components/SpellSequence/spell_sequence.gd" id="1_stxjh"]
 
-[node name="SpellSequence" type="Node"]
+[node name="SpellSequence" type="Node2D"]
 script = ExtResource("1_stxjh")
