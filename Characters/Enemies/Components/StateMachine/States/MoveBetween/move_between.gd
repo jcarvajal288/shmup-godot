@@ -19,7 +19,9 @@ func move_to_next_location() -> void:
 	subject.velocity = displacement.normalized() * speed
 
 
-func _physics_process(delta: float) -> void:
+func process_physics(delta: float) -> void:
+	if not subject:
+		return
 	if subject.velocity.length() <= 5.0:
 		next_location = (next_location + 1) % locations.size()
 		move_to_next_location()

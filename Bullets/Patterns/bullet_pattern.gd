@@ -9,7 +9,7 @@ var repetitions = 1
 var direction = Vector2.DOWN
 
 
-func _ready() -> void:
+func enter() -> void:
 	$DelayTimer.timeout.connect(shoot)
 	$RepeatTimer.timeout.connect(shoot)
 	$DelayTimer.start(delay_time)

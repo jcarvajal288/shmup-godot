@@ -8,7 +8,7 @@ signal signal_spell_change
 
 func init(subject: Enemy) -> void:
 	for child in get_children():
-		child.set_enabled(false)
+		# child.set_enabled(false)
 		child.subject = subject
 		child.signal_spell_change = signal_spell_change
 	signal_spell_change.connect(change_spell)
@@ -21,3 +21,7 @@ func change_spell(new_spell: SpellCard) -> void:
 		current_spell.exit()
 	current_spell = new_spell
 	current_spell.enter()
+
+
+func _physics_process(delta: float) -> void:
+	current_spell.process_physics(delta)

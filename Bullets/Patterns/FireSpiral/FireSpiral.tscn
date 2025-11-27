@@ -4,3 +4,7 @@
 
 [node name="FireSpiral" type="Node2D"]
 script = ExtResource("1_wuwmw")
+
+[node name="DelayTimer" type="Timer" parent="."]
+
+[node name="RepeatTimer" type="Timer" parent="."]
