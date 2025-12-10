@@ -12,6 +12,8 @@ func _ready() -> void:
 	await Global.wait_for_sec(2.0)
 	locations.reverse()
 	wave_1(locations)
+	await Global.wait_for_sec(10.0)
+	spawn_rumia()
 
 
 func wave_1(locations: Array[Vector2]) -> void:
@@ -42,3 +44,9 @@ func big_fairy() -> void:
 	bullet_pattern.set_spread(PI / 4, 9)
 
 	spawn_enemy(build_big_fairy(SPAWN_TOP_MIDDLE, bullet_pattern, move_pattern))
+
+
+func spawn_rumia() -> void:
+	var rumia = RUMIA.instantiate()
+	rumia.global_position = Vector2(180, 25)
+	spawn_enemy(rumia)
