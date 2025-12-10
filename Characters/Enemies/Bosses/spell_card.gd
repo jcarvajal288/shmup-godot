@@ -23,6 +23,10 @@ func enter() -> void:
 	# set_enabled(true)
 
 
+func process_physics(_delta: float) -> void:
+	pass
+
+
 func exit() -> void:
 	pass
 	# set_enabled(false)

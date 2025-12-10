@@ -22,3 +22,4 @@ func fire() -> void:
 	)
 	for pattern in patterns:
 		get_tree().root.add_child(pattern)
+		pattern.enter()
