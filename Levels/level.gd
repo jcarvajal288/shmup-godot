@@ -28,7 +28,6 @@ func rand(from: float, to: float) -> float:
 	return Global.rng.randf_range(from, to)
 
 
-
 func build_fairy(location: Vector2, color: String, bullet_pattern: BulletPattern, move_pattern: MovementPattern) -> Fairy:
 	var fairy = FAIRY.instantiate()
 	fairy.global_position = location
@@ -36,6 +35,7 @@ func build_fairy(location: Vector2, color: String, bullet_pattern: BulletPattern
 	move_pattern.subject = fairy
 	fairy.add_child(bullet_pattern)
 	fairy.add_child(move_pattern)
+	fairy.bullet_pattern = bullet_pattern
 	return fairy
 
 
@@ -45,6 +45,7 @@ func build_big_fairy(location: Vector2, bullet_pattern: BulletPattern, move_patt
 	move_pattern.subject = fairy
 	fairy.add_child(bullet_pattern)
 	fairy.add_child(move_pattern)
+	fairy.bullet_pattern = bullet_pattern
 	return fairy
 
 

@@ -8,6 +8,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	super()
 	$AnimationPlayer.play(color + "Standard")
 	$Health.current_health = hp
 

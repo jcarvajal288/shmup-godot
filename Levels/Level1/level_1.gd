@@ -23,7 +23,7 @@ func wave_1(locations: Array[Vector2]) -> void:
 
 		var bullet_pattern = BulletPatterns.FIRE_STRAIGHT.instantiate()
 		bullet_pattern.set_bullet(Global.BulletType.ARROW, Global.BulletColor.BRIGHT_RED)
-		bullet_pattern.set_fire_timings(rand(0.5, 2.0), rand(5.0, 10.0), INFINITE)
+		bullet_pattern.set_fire_timings(rand(0.5, 2.0), rand(5.0, 10.0), Global.INFINITE)
 		bullet_pattern.set_velocity(Global.TOWARDS_PLAYER, FASTEST_SPEED)
 
 		return build_fairy(location, "blue", bullet_pattern, move_pattern_copy)
