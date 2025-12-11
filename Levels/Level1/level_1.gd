@@ -2,8 +2,8 @@ extends Level
 
 
 func _ready() -> void:
-	big_fairy()
 	var locations: Array[Vector2] = [SPAWN_TOP_LEFT, SPAWN_TOP_MIDDLE_LEFT, SPAWN_TOP_MIDDLE, SPAWN_TOP_MIDDLE_RIGHT, SPAWN_TOP_RIGHT]
+	big_fairy()
 	await Global.wait_for_sec(1.0)
 	wave_1(locations)
 	await Global.wait_for_sec(2.0)

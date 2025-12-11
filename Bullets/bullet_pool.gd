@@ -25,8 +25,9 @@ func get_bullet(bullet_type: Global.BulletType) -> Bullet:
 		bullet = pool[bullet_type].pop_back()
 	bullet.enable(true)
 	return bullet
-
+# 
 
 func put_bullet(bullet: Bullet) -> void:
 	bullet.enable(false)
+	bullet.transform = Transform2D.IDENTITY
 	pool[bullet.type].push_back(bullet)
