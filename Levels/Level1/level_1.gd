@@ -12,7 +12,7 @@ func _ready() -> void:
 	await Global.wait_for_sec(2.0)
 	locations.reverse()
 	wave_1(locations)
-	await Global.wait_for_sec(10.0)
+	await Global.wait_for_sec(2.0)
 	spawn_rumia()
 
 

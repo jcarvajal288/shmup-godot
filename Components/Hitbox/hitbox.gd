@@ -4,9 +4,10 @@ extends Area2D
 
 func _ready() -> void:
 	set_collision_mask_value(target, true)
+	body_entered.connect(_on_body_entered)
 	
 
-func _on_area_entered(_area: Area2D) -> void:
+func _on_body_entered(_body: CharacterBody2D) -> void:
 	get_parent().queue_free()
 
 
