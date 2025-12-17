@@ -10,3 +10,4 @@ func _physics_process(_delta: float) -> void:
 
 func _ready() -> void:
 	$SpellSequence.init(self)
+	Global.health_bar_visible.emit(true)

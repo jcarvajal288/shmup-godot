@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpxbemoess3rf"]
+
+[ext_resource type="PackedScene" uid="uid://ceivaysb2hokg" path="res://UI/HealthBar/HealthBar.tscn" id="1_xv1u1"]
+
+[node name="MainUi" type="CanvasLayer"]
+
+[node name="HealthBar" parent="." instance=ExtResource("1_xv1u1")]
+visible = false
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -624.0

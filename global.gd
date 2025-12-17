@@ -8,6 +8,8 @@ const TOWARDS_PLAYER = Vector2.ZERO
 
 var PLAYER_LOCATION = Vector2.ZERO
 
+signal health_bar_visible(visible: bool)
+
 enum CollisionLayer {
 	PLAYER = 1,
 	ENEMY = 2,

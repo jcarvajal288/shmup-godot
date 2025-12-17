@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://yg7e83elwxoc"]
+[gd_scene load_steps=11 format=3 uid="uid://yg7e83elwxoc"]
 
 [ext_resource type="Script" uid="uid://bjkq20tw44n8s" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ri4v3e2msd6i" path="res://Characters/Player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://illdbbfjgwop" path="res://Levels/Level1/Level1.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dpxbemoess3rf" path="res://UI/MainUI.tscn" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dv53qlojv7fnl" path="res://Components/GarbageCollector/GarbageCollector.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ce8wdlmj7x10j" path="res://Bullets/BulletPool.tscn" id="5_lquwl"]
 
@@ -21,6 +22,8 @@ size = Vector2(390, 20)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
 level = ExtResource("2_lquwl")
+
+[node name="MainUi" parent="." instance=ExtResource("3_7mycd")]
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(180, 560)
