@@ -21,6 +21,7 @@ func change_spell(new_spell: SpellCard) -> void:
 		current_spell.exit()
 	current_spell = new_spell
 	current_spell.enter()
+	Global.health_bar_percentage_changed.emit(100.0)
 
 
 func _physics_process(delta: float) -> void:

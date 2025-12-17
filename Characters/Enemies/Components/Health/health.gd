@@ -4,6 +4,7 @@ class_name Health extends Node
 @onready var current_health = max_health
 
 signal on_death
+signal on_health_changed(current_health: int, max_health: int)
 
 
 func set_health(hp: int) -> void:
@@ -13,6 +14,7 @@ func set_health(hp: int) -> void:
 
 func _on_hit() -> void:
 	current_health -= 1
+	on_health_changed.emit(current_health,  max_health)
 	print(current_health)
 	if current_health <= 0:
 		on_death.emit()
