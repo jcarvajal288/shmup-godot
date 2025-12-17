@@ -8,8 +8,10 @@ const TOWARDS_PLAYER = Vector2.ZERO
 
 var PLAYER_LOCATION = Vector2.ZERO
 
+@warning_ignore_start("unused_signal")
 signal health_bar_visible(visible: bool)
 signal health_bar_percentage_changed(percentage: float)
+@warning_ignore_restore("unused_signal")
 
 enum CollisionLayer {
 	PLAYER = 1,

@@ -10,8 +10,10 @@ var direction = Vector2.DOWN
 
 
 func enter() -> void:
-	$DelayTimer.timeout.connect(shoot)
-	$RepeatTimer.timeout.connect(shoot)
+	if not $DelayTimer.timeout.is_connected(shoot):
+		$DelayTimer.timeout.connect(shoot)
+	if not $RepeatTimer.timeout.is_connected(shoot):
+		$RepeatTimer.timeout.connect(shoot)
 	$DelayTimer.start(delay_time)
 
 
