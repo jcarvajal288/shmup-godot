@@ -15,7 +15,6 @@ func set_health(hp: int) -> void:
 func _on_hit() -> void:
 	current_health -= 1
 	on_health_changed.emit(current_health,  max_health)
-	print(current_health)
 	if current_health <= 0:
 		on_death.emit()
 
