@@ -4,11 +4,11 @@ extends Area2D
 
 func _ready() -> void:
 	set_collision_mask_value(target, true)
-	body_entered.connect(_on_body_entered)
 	
 
-func _on_body_entered(_body: CharacterBody2D) -> void:
-	get_parent().queue_free()
+func _on_body_entered(body: Node) -> void:
+	if body is CharacterBody2D:
+		get_parent().queue_free()
 
 
 func enable(is_enabled: bool) -> void:
