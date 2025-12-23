@@ -1,21 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv53qlojv7fnl"]
+[gd_scene load_steps=4 format=3 uid="uid://dv53qlojv7fnl"]
 
 [ext_resource type="Script" uid="uid://bvwqkepxaflep" path="res://Components/GarbageCollector/garbage_collector.gd" id="1_mecq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou3q5"]
-size = Vector2(633, 980)
+size = Vector2(823, 1067)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mecq5"]
+size = Vector2(360.5, 639.5)
 
 [node name="GarbageCollector" type="Node2D"]
 script = ExtResource("1_mecq5")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="EnemyDespawner" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(189.5, 361)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDespawner"]
+position = Vector2(174.5, 352.5)
 shape = SubResource("RectangleShape2D_ou3q5")
 debug_color = Color(0, 0, 0, 0.05882353)
 
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="PlayArea" type="Area2D" parent="."]
+position = Vector2(4, 1)
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(177, 322)
+shape = SubResource("RectangleShape2D_mecq5")
+debug_color = Color(0.53073275, 0.5358896, 0.5429039, 0.09411765)
+
+[connection signal="area_exited" from="EnemyDespawner" to="." method="_on_area_exited"]
+[connection signal="body_exited" from="EnemyDespawner" to="." method="_on_area_2d_body_exited"]
